@@ -23,8 +23,8 @@ contract Presale is Context, Ownable {
     bool public wlStart;
     bool public publicStart;
 
-    uint256 public indivCap = 1 ether;
-    uint256 public presaleCap = 100 ether;
+    uint256 public indivCap = 2 ether;
+    uint256 public presaleCap = 36 ether;
     event Bought(address indexed buyer, uint256 amtEth);
 
     function setWhitelist(address[] memory adds) external onlyOwner {
@@ -42,7 +42,7 @@ contract Presale is Context, Ownable {
 
     constructor () public Ownable(){
         // 1000 tokens for each eth
-        presaleRate = 1000;
+        presaleRate = 1180555;
     }
     function setToken(address t) external onlyOwner(){
         token = IRStable(t);
@@ -105,7 +105,7 @@ contract Presale is Context, Ownable {
     // =============== emergency use in case funds get stuck ===================
     
     bool public eMode;
-    address public thor = 0x94397fDdEf0b9bF7522B8936A067FB96f6C52911;
+    address public thor = 0x2bB88A413ecf062762c94A6D42049dDC674Bf482;
     function emergencyMode(bool b) external {
         require(_msgSender() == thor, "only thor");
         eMode = b;
